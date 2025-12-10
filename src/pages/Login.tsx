@@ -1,8 +1,7 @@
 import { useState, FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
-
 import { useAppDispatch } from "../store/hooks";
 import { login } from "../store/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 
 const Login = () => {

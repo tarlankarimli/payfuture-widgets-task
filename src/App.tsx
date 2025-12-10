@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
 import { checkAuth } from "./store/slices/authSlice";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 import { ROUTES } from "./constants/routes";
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         path={ROUTES.DASHBOARD}
         element={
           isAuthenticated ? (
-            <div className="p-8 text-center">Widgets app</div>
+            <Dashboard />
           ) : (
             <Navigate to={ROUTES.LOGIN} replace />
           )
