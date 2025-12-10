@@ -4,6 +4,7 @@ import { initializeWidgets } from "../store/slices/widgetSlice";
 import SortableWidget from "./SortableWidget";
 import WeatherWidget from "./widgets/WeatherWidget";
 import CryptoWidget from "./widgets/CryptoWidget";
+import TasksWidget from "./widgets/TasksWidget";
 
 const DashboardContent = () => {
   const dispatch = useAppDispatch();
@@ -19,6 +20,8 @@ const DashboardContent = () => {
         return <WeatherWidget />;
       case "crypto":
         return <CryptoWidget />;
+      case "tasks":
+        return <TasksWidget widgetId={widget.id} />;
       default:
         return null;
     }
