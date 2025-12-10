@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { initializeWidgets } from "../store/slices/widgetSlice";
 import SortableWidget from "./SortableWidget";
 import WeatherWidget from "./widgets/WeatherWidget";
+import CryptoWidget from "./widgets/CryptoWidget";
 
 const DashboardContent = () => {
   const dispatch = useAppDispatch();
@@ -17,6 +17,8 @@ const DashboardContent = () => {
     switch (widget.type) {
       case "weather":
         return <WeatherWidget />;
+      case "crypto":
+        return <CryptoWidget />;
       default:
         return null;
     }

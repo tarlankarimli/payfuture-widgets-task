@@ -22,7 +22,10 @@ const loadWidgetsFromStorage = (): Widget[] => {
   } catch (e) {
     console.error("Failed load widgets from storage", e);
   }
-  return [{ id: "1", type: "weather", order: 0 }];
+  return [
+    { id: "1", type: "weather", order: 0 },
+    { id: "2", type: "crypto", order: 1 },
+  ];
 };
 
 const initialState: WidgetState = {
@@ -44,9 +47,9 @@ const widgetSlice = createSlice({
       localStorage.setItem("dashboardWidgets", widgetsJson);
     },
     removeWidget: (state, action: PayloadAction<string>) => {
-      state.widgets = state.widgets.filter((widget) => widget.id !== action.payload);
-      state.widgets.forEach((widget, index) => {
-        widget.order = index;
+      state.widgets = state.widgets.filter((w) => w.id !== action.payload);
+      state.widgets.forEach((w, index) => {
+        w.order = index;
       });
       localStorage.setItem("dashboardWidgets", JSON.stringify(state.widgets));
     },
@@ -59,7 +62,10 @@ const widgetSlice = createSlice({
           console.error("Failed to load widgets from storage", e);
         }
       } else if (state.widgets.length === 0) {
-        state.widgets = [{ id: "1", type: "weather", order: 0 }];
+        state.widgets = [
+          { id: "1", type: "weather", order: 0 },
+          { id: "2", type: "crypto", order: 1 },
+        ];
         localStorage.setItem("dashboardWidgets", JSON.stringify(state.widgets));
       }
     },
