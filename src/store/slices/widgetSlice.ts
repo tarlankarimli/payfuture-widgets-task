@@ -24,8 +24,8 @@ const loadWidgetsFromStorage = (): Widget[] => {
   }
   return [
     { id: "1", type: "weather", order: 0 },
-    { id: "2", type: "tasks", order: 1 },
-    { id: "3", type: "crypto", order: 2 },
+    { id: "3", type: "crypto", order: 1 },
+    { id: "2", type: "tasks", order: 2 },
   ];
 };
 
@@ -49,11 +49,19 @@ const widgetSlice = createSlice({
     },
     removeWidget: (state, action: PayloadAction<string>) => {
       const widgetId = action.payload;
-      state.widgets = state.widgets.filter((widget) => widget.id !== widgetId);
-      state.widgets.forEach((widget, index) => {
-        widget.order = index;
+      state.widgets = state.widgets.filter((w) => w.id !== widgetId);
+      state.widgets.forEach((w, index) => {
+        w.order = index;
       });
       localStorage.setItem("dashboardWidgets", JSON.stringify(state.widgets));
+    },
+    reorderWidgets: (state, action: PayloadAction<Widget[]>) => {
+      state.widgets = action.payload;
+      state.widgets.forEach((w, index) => {
+        w.order = index;
+      });
+      const widgetsJson = JSON.stringify(state.widgets);
+      localStorage.setItem("dashboardWidgets", widgetsJson);
     },
     initializeWidgets: (state) => {
       const saved = localStorage.getItem("dashboardWidgets");
@@ -66,8 +74,8 @@ const widgetSlice = createSlice({
       } else if (state.widgets.length === 0) {
         state.widgets = [
           { id: "1", type: "weather", order: 0 },
-          { id: "2", type: "tasks", order: 1 },
           { id: "3", type: "crypto", order: 2 },
+          { id: "2", type: "tasks", order: 1 },
         ];
         localStorage.setItem("dashboardWidgets", JSON.stringify(state.widgets));
       }
@@ -75,6 +83,6 @@ const widgetSlice = createSlice({
   },
 });
 
-export const { addWidget, removeWidget, initializeWidgets } =
+export const { addWidget, removeWidget, reorderWidgets, initializeWidgets } =
   widgetSlice.actions;
 export default widgetSlice.reducer;

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import DashboardContent from "../components/DashboardContent";
@@ -8,7 +9,9 @@ const Dashboard = () => {
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Navbar />
-        <DashboardContent />
+        <Suspense fallback={<div className="p-4">Loading...</div>}>
+          <DashboardContent />
+        </Suspense>
       </div>
     </div>
   );
