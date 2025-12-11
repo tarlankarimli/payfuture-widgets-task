@@ -161,7 +161,7 @@ const TasksWidget = ({ widgetId }: { widgetId: string }) => {
               value={editTitleText}
               onChange={(e) => setEditTitleText(e.target.value)}
               onKeyDown={handleTitleKeyPress}
-              className="text-lg font-semibold px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1"
+              className="text-lg font-semibold px-2 py-1 border border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1"
               autoFocus
             />
             <button
@@ -196,11 +196,11 @@ const TasksWidget = ({ widgetId }: { widgetId: string }) => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search tasks..."
-          className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2"
+          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2"
         />
       </div>
       <div className="mb-3">
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <input
             type="text"
             value={newTaskText}
@@ -209,11 +209,11 @@ const TasksWidget = ({ widgetId }: { widgetId: string }) => {
             }}
             onKeyPress={handleKeyPress}
             placeholder="Add new task..."
-            className="flex-1 px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button
             onClick={addTask}
-            className="bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition-colors"
+            className="w-full sm:w-auto bg-blue-500 text-white px-4 py-2 rounded text-sm hover:bg-blue-600 transition-colors"
           >
             Add
           </button>
@@ -221,14 +221,14 @@ const TasksWidget = ({ widgetId }: { widgetId: string }) => {
       </div>
       <div className="space-y-2 max-h-64 overflow-y-auto">
         {filteredTasks.length === 0 ? (
-          <p className="text-gray-500 text-sm text-center py-4">
+          <p className="text-gray-500 dark:text-gray-300 text-sm text-center py-4">
             {tasks.length === 0 ? "No tasks yet" : "No tasks found"}
           </p>
         ) : (
           filteredTasks.map((task) => (
             <div
               key={task.id}
-              className="flex items-center gap-2 p-2 bg-gray-50 rounded"
+              className="flex items-center gap-2 p-2 bg-gray-50 dark:bg-gray-700 rounded"
             >
               <input
                 type="checkbox"
@@ -244,7 +244,7 @@ const TasksWidget = ({ widgetId }: { widgetId: string }) => {
                     value={editText}
                     onChange={(e) => setEditText(e.target.value)}
                     onKeyDown={handleEditKeyPress}
-                    className="flex-1 px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 px-2 py-1 border border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     autoFocus
                   />
                   <button

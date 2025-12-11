@@ -110,7 +110,7 @@ const CryptoWidget = () => {
   return (
     <div className="p-4">
       <h3 className="text-lg font-semibold mb-4">Crypto Prices</h3>
-      {error && <p className="text-xs text-yellow-600 mb-2">{error}</p>}
+      {error && <p className="text-xs text-yellow-600 dark:text-yellow-400 mb-2">{error}</p>}
       <div className="space-y-3">
         {cryptoData.map((coin) => {
           const isPositive = coin.price_change_percentage_24h >= 0;
@@ -122,7 +122,7 @@ const CryptoWidget = () => {
                 )}
                 <div>
                   <div className="font-medium">{coin.name}</div>
-                  <div className="text-xs text-gray-500 uppercase">
+                  <div className="text-xs text-gray-500 dark:text-gray-300 uppercase">
                     {coin.symbol}
                   </div>
                 </div>

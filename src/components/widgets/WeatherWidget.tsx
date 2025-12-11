@@ -65,24 +65,24 @@ const WeatherWidget = () => {
       <div className="flex justify-between items-start mb-3">
         <h3 className="text-lg font-semibold">Weather</h3>
       </div>
-      {error && <p className="text-xs text-yellow-600 mb-2">{error}</p>}
+      {error && <p className="text-xs text-yellow-600 dark:text-yellow-400 mb-2">{error}</p>}
       <div className="space-y-2">
         <div className="text-2xl font-bold">{weather.name}</div>
         <div className="text-3xl font-bold">
           {Math.round(weather.main.temp)}°C
         </div>
-        <div className="text-gray-600 capitalize">
+        <div className="text-gray-600 dark:text-gray-300 capitalize">
           {weather.weather[0].description}
         </div>
-        <div className="flex justify-between text-sm mt-4 pt-4 border-t">
+        <div className="flex justify-between text-sm mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
           <div>
-            <span className="text-gray-500">Feels like:</span>
+            <span className="text-gray-500 dark:text-gray-300">Feels like:</span>
             <span className="ml-2">
               {Math.round(weather.main.feels_like)}°C
             </span>
           </div>
           <div>
-            <span className="text-gray-500">Humidity:</span>
+            <span className="text-gray-500 dark:text-gray-300">Humidity:</span>
             <span className="ml-2">{weather.main.humidity}%</span>
           </div>
         </div>

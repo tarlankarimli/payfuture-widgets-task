@@ -33,7 +33,7 @@ const SortableWidget = ({ id, children }: SortableWidgetProps) => {
     <div
       ref={setNodeRef}
       style={style}
-      className="bg-white rounded-lg shadow-md p-4 relative group"
+      className="bg-white dark:bg-gray-800 dark:text-gray-100 border border-gray-100 dark:border-gray-700 rounded-lg shadow-md p-4 relative group transition-colors"
     >
       <button
         {...attributes}

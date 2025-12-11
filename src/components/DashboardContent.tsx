@@ -92,45 +92,45 @@ const DashboardContent = () => {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto p-6">
+    <div className="flex-1 overflow-y-auto p-6 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
       <div className="mb-4">
         <div className="flex gap-2">
           <button
             onClick={() => setFilterType("all")}
-            className={`px-4 py-2 rounded text-sm ${
+            className={`px-4 py-2 rounded text-sm border transition-colors ${
               filterType === "all"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-blue-500 text-white border-blue-500"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300 border-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"
             }`}
           >
             All
           </button>
           <button
             onClick={() => setFilterType("weather")}
-            className={`px-4 py-2 rounded text-sm ${
+            className={`px-4 py-2 rounded text-sm border transition-colors ${
               filterType === "weather"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-blue-500 text-white border-blue-500"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300 border-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"
             }`}
           >
             Weather
           </button>
           <button
             onClick={() => setFilterType("crypto")}
-            className={`px-4 py-2 rounded text-sm ${
+            className={`px-4 py-2 rounded text-sm border transition-colors ${
               filterType === "crypto"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-blue-500 text-white border-blue-500"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300 border-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"
             }`}
           >
             Crypto
           </button>
           <button
             onClick={() => setFilterType("tasks")}
-            className={`px-4 py-2 rounded text-sm ${
+            className={`px-4 py-2 rounded text-sm border transition-colors ${
               filterType === "tasks"
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-blue-500 text-white border-blue-500"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300 border-gray-300 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 dark:hover:bg-gray-700"
             }`}
           >
             Tasks
